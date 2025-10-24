@@ -1,0 +1,10 @@
+{
+  "name": "@repo/prisma",
+  "description": "Prisma ORM setup and configurations for the repo",
+  "authors": "author",
+  "version": "1.0.0",
+  "main": "generated/prisma/client.ts",
+  "devDependencies": {
+    "prisma": "^6.18.0"
+  }
+}

@@ -1,0 +1,39 @@
+---
+globs: *.env*,*.config.*
+description: "Configuration et variables d'environnement"
+---
+
+# Règles de Configuration et Variables d'Environnement
+
+## Variables d'environnement requises
+- `DATABASE_URL`: URL PostgreSQL pour Prisma (obligatoire)
+- `POSTGRES_DB`, `POSTGRES_USER`, `POSTGRES_PASSWORD`: Configuration PostgreSQL
+- `REDIS_URL`: Configuration Redis
+- `JWT_SECRET`: Clé secrète pour l'authentification JWT
+- `NODE_ENV`: Environnement (development/production)
+
+## Fichiers de configuration
+- `.env`: Variables d'environnement locales (ignoré par git)
+- `.env.example`: Modèle des variables requises
+- `compose.yml`: Configuration Docker avec variables
+
+## Sécurité
+- **JAMAIS** commiter de fichiers `.env` avec des secrets
+- Utiliser des valeurs par défaut sécurisées en développement
+- Changer `JWT_SECRET` en production
+- Utiliser des variables d'environnement pour tous les secrets
+
+## Configuration Prisma
+- Schéma dans [apps/backend/prisma/schema.prisma](mdc:apps/backend/prisma/schema.prisma)
+- Client généré dans `apps/backend/generated/prisma`
+- Migration avec `prisma migrate dev`
+
+## Configuration Nuxt
+- Configuration dans [apps/frontend/nuxt.config.ts](mdc:apps/frontend/nuxt.config.ts)
+- Variables d'environnement avec `runtimeConfig`
+- Support i18n configuré
+
+## Bonnes pratiques
+- Toujours fournir des valeurs par défaut dans Docker Compose
+- Documenter les variables requises dans `.env.example`
+- Utiliser des types stricts pour la validation des configs

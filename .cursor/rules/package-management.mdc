@@ -1,0 +1,38 @@
+---
+globs: package.json,pnpm-lock.yaml,pnpm-workspace.yaml
+description: "Gestion des dépendances et workspace"
+---
+
+# Règles de Gestion des Dépendances
+
+## Gestionnaire de paquets
+- **pnpm** comme gestionnaire principal (version 9.0.0)
+- Configuration workspace dans [pnpm-workspace.yaml](mdc:pnpm-workspace.yaml)
+- Lock file dans [pnpm-lock.yaml](mdc:pnpm-lock.yaml)
+
+## Structure des workspaces
+- `apps/*`: Applications principales (backend, frontend, graphql-server)
+- `packages/*`: Packages partagés (à créer selon les besoins)
+
+## Scripts principaux
+- `pnpm dev`: Démarre tous les services en mode développement
+- `pnpm build`: Build tous les packages avec Turbo
+- `pnpm lint`: Lint tous les packages
+- `pnpm format`: Format le code avec Prettier
+
+## Turbo Configuration
+- Configuration dans [turbo.json](mdc:turbo.json)
+- Cache intelligent pour les builds
+- Dépendances entre packages gérées automatiquement
+- UI TUI pour le monitoring
+
+## Bonnes pratiques
+- Toujours utiliser `pnpm` au lieu de `npm` ou `yarn`
+- Ajouter les dépendances dans le bon workspace
+- Utiliser `pnpm -w` pour les dépendances workspace
+- Maintenir le lock file à jour
+
+## Dépendances partagées
+- TypeScript 5.9.2 au niveau workspace
+- Prettier pour le formatting
+- Turbo pour le build system

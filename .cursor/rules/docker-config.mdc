@@ -1,0 +1,35 @@
+---
+globs: compose.yml,dockerfile,Dockerfile
+description: "Configuration Docker et conteneurs"
+---
+
+# Règles Docker et Conteneurs
+
+## Docker Compose
+- Configuration principale dans [compose.yml](mdc:compose.yml)
+- Utiliser des variables d'environnement pour la configuration
+- Toujours définir des valeurs par défaut avec `${VAR:-default}`
+- Utiliser des volumes nommés pour la persistance des données
+
+## Services requis
+- **PostgreSQL 17**: Base de données principale
+- **Redis**: Cache et sessions
+- **Réseau dédié**: Pour la communication entre services
+
+## Variables d'environnement Docker
+- `POSTGRES_DB`: Nom de la base de données
+- `POSTGRES_USER`: Utilisateur PostgreSQL
+- `POSTGRES_PASSWORD`: Mot de passe PostgreSQL
+- `POSTGRES_PORT`: Port d'exposition (défaut: 5432)
+- `REDIS_PORT`: Port Redis (défaut: 6379)
+
+## Bonnes pratiques
+- Utiliser des images officielles (postgres:17, redis:7-alpine)
+- Configurer des health checks pour PostgreSQL
+- Utiliser `restart: unless-stopped` pour la disponibilité
+- Exposer uniquement les ports nécessaires
+
+## Volumes
+- `postgres_data`: Données PostgreSQL persistantes
+- `redis_data`: Données Redis persistantes
+- `./init-scripts`: Scripts d'initialisation de la base

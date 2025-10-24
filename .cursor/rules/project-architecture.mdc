@@ -1,0 +1,34 @@
+---
+alwaysApply: true
+description: "Architecture et structure du projet SaaS boilerplate"
+---
+
+# Architecture du Projet SaaS Boilerplate
+
+Ce projet utilise une architecture monorepo avec les technologies suivantes :
+
+## Structure du Projet
+- **Backend**: NestJS avec Prisma ORM dans [apps/backend/](mdc:apps/backend/)
+- **Frontend**: Nuxt 4 avec Vue 3 et Pinia dans [apps/frontend/](mdc:apps/frontend/)
+- **GraphQL Server**: NestJS GraphQL dans [apps/graphql-server/](mdc:apps/graphql-server/)
+- **Base de données**: PostgreSQL 17 configurée dans [compose.yml](mdc:compose.yml)
+- **Gestionnaire de paquets**: pnpm avec workspace configuré dans [pnpm-workspace.yaml](mdc:pnpm-workspace.yaml)
+- **Build system**: Turbo configuré dans [turbo.json](mdc:turbo.json)
+
+## Configuration Docker
+- PostgreSQL 17 avec variables d'environnement
+- Redis pour le cache et les sessions
+- Volumes persistants pour les données
+- Réseau Docker dédié
+
+## Variables d'environnement requises
+- `DATABASE_URL`: URL de connexion PostgreSQL (requis par Prisma)
+- `POSTGRES_DB`, `POSTGRES_USER`, `POSTGRES_PASSWORD`: Configuration PostgreSQL
+- `REDIS_URL`: Configuration Redis
+- `JWT_SECRET`: Clé secrète pour JWT
+- `NODE_ENV`: Environnement d'exécution
+
+## Commandes principales
+- `pnpm dev`: Démarre tous les services en mode développement
+- `pnpm build`: Build tous les packages
+- `docker-compose up -d`: Démarre PostgreSQL et Redis

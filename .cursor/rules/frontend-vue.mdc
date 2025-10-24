@@ -1,0 +1,38 @@
+---
+globs: *.vue,*.ts,*.js
+description: "Règles pour le frontend Nuxt/Vue"
+---
+
+# Règles Frontend - Nuxt 4 + Vue 3
+
+## Structure Nuxt
+- Pages dans `pages/` (auto-routage)
+- Composants dans `components/`
+- Stores Pinia dans `stores/`
+- Configuration dans [apps/frontend/nuxt.config.ts](mdc:apps/frontend/nuxt.config.ts)
+
+## Vue 3 Composition API
+- Préférer `<script setup>` pour les composants
+- Utiliser `ref()` et `reactive()` pour la réactivité
+- Utiliser `computed()` pour les propriétés calculées
+- Utiliser `watch()` et `watchEffect()` pour les effets de bord
+
+## Pinia Stores
+- Stores dans [apps/frontend/app/stores/](mdc:apps/frontend/app/stores/)
+- Utiliser `defineStore()` pour définir les stores
+- Préférer la syntaxe Composition API pour les stores
+
+## Styling
+- Utiliser Tailwind CSS (configuré avec @nuxtjs/tailwindcss)
+- Classes utilitaires plutôt que CSS custom
+- Variables CSS pour les thèmes
+
+## Internationalisation
+- Fichiers de traduction dans [apps/frontend/i18n/locales/](mdc:apps/frontend/i18n/locales/)
+- Utiliser `$t()` pour les traductions
+- Support français et anglais
+
+## Conventions
+- Nommage kebab-case pour les composants
+- Props avec validation TypeScript
+- Émettre des événements avec `defineEmits()`
